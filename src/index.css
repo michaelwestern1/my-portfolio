@@ -1,0 +1,129 @@
+
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #f8fafc;
+  background: #080d17;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #bef264;
+  color: #080d17;
+}
+
+:focus-visible {
+  outline: 2px solid #bef264;
+  outline-offset: 4px;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    110deg,
+    #38bdf8 0%,
+    #60a5fa 30%,
+    #bef264 65%,
+    #38bdf8 100%
+  );
+  background-size: 250% 250%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.glass-card {
+  background: rgba(17, 27, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  backdrop-filter: blur(16px);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.15),
+    0 0 35px rgba(56, 189, 248, 0.06);
+}
+
+.cyber-grid {
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.04) 1px,
+      transparent 1px
+    );
+  background-size: 55px 55px;
+}
+
+.floating-orb {
+  animation: float-orb 12s ease-in-out infinite;
+}
+
+@keyframes float-orb {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(35px, -35px);
+  }
+}
+
+.glow-button {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.glow-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .gradient-text,
+  .floating-orb {
+    animation: none;
+  }
+
+  .glow-button,
+  .glass-card {
+    transition: none;
+  }
+}
